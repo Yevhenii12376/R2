@@ -1,13 +1,16 @@
 from playwright.sync_api import Playwright, sync_playwright, expect
 
 
-def run(playwright: Playwright) -> None:
+def Perevirka_vhodu_bez_Logina(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://makeup.com.ua/ua/")
+    page.wait_for_timeout(1000)
     page.locator(".header-office").click()
+    page.wait_for_timeout(1000)
     page.get_by_placeholder("Пароль").click()
+    page.wait_for_timeout(1000)
     page.get_by_placeholder("Пароль").fill("13052000n")
     page.get_by_role("button", name="Увійти").click()
 
@@ -17,4 +20,4 @@ def run(playwright: Playwright) -> None:
 
 
 with sync_playwright() as playwright:
-    run(playwright)
+    Perevirka_vhodu_bez_Logina(playwright)
