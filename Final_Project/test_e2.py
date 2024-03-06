@@ -52,8 +52,10 @@ def test_product_search(page):
 def test_filter_check(page):
 
     page.goto("https://makeup.com.ua/ua/")
+    # Перехід на сторінку Тіло і ванна
     page.get_by_role("link", name="Тіло і ванна").click()
     page.locator("#popularinput-checkbox-2243-29953").click()
+    # Перехід на товар
     page.goto("https://makeup.com.ua/ua/categorys/321073/#o[2243][]=29953")
 
 def test_password_change_verification(page):
