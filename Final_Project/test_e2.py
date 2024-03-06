@@ -7,7 +7,7 @@ def page():
         page = browser.new_page()
         yield page
         browser.close()
-
+#
 def test_e2e(page):
     page.goto("https://makeup.com.ua/ua/")
     page.locator(".header-office").click()
